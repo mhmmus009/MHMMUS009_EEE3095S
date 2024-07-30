@@ -44,7 +44,8 @@ TIM_HandleTypeDef htim16;
 
 /* USER CODE BEGIN PV */
 // TODO: Define input variables
-
+const uint8_t led_pat_reset = 0b11101001;
+uint8_t led_pat = led_pat_reset;
 
 /* USER CODE END PV */
 
@@ -89,8 +90,10 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM16_Init();
   /* USER CODE BEGIN 2 */
+  //HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
 
   // TODO: Start timer TIM16
+  HAL_TIM_Base_Start_IT(&htim16);
 
   /* USER CODE END 2 */
 
@@ -326,8 +329,7 @@ void TIM16_IRQHandler(void)
 
 	// TODO: Change LED pattern
 	// print something
-
-  
+	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
 }
 
 /* USER CODE END 4 */
