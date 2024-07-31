@@ -329,7 +329,8 @@ void TIM16_IRQHandler(void)
 
 	// TODO: Change LED pattern
 	// print something
-	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
+	LL_GPIO_WriteReg(GPIOB, ODR, led_pat);
+	led_pat = (led_pat == 0b00000000) ? led_pat_reset : led_pat << 1;
 }
 
 /* USER CODE END 4 */
