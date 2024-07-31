@@ -106,6 +106,29 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
     // TODO: Check pushbuttons to change timer delay
+	  // BUTTON 0
+	  if (!HAL_GPIO_ReadPin(GPIOA, Button0_Pin))
+	  {
+		  __HAL_TIM_SET_AUTORELOAD(&htim16, 500 - 1);
+
+	  }
+	  // BUTTON 1
+	  if (!HAL_GPIO_ReadPin(GPIOA, Button1_Pin))
+	  {
+		  //TODO
+		  __HAL_TIM_SET_AUTORELOAD(&htim16, 2000 - 1);
+	  }
+	  // BUTTON 2
+	  if (!HAL_GPIO_ReadPin(GPIOA, Button2_Pin))
+	  {
+		  //TODO
+		  __HAL_TIM_SET_AUTORELOAD(&htim16, 1000 - 1);
+	  }
+	  // BUTTON 3
+	  if (!HAL_GPIO_ReadPin(GPIOA, Button3_Pin))
+	  {
+		  led_pat = led_pat_reset;
+	  }
     
     
 
